@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './component/Header'
 import SearchProduct from './component/Search'
+import ProductList from './component/ProductList'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -98,6 +99,8 @@ const products = [
     <>
       <Header />
       <SearchProduct /> 
+
+      <ProductList product={products}/>
 
     </>
   )
