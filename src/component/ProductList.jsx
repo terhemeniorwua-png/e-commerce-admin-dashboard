@@ -1,21 +1,26 @@
 import { useState } from "react";
 import Button from "./Button";
+import ProductDetails from "./ProductDetails";
 
 const ProductList = ({product}) => {
+
+    const [show, setShow] = useState(false)
 
     const [selectedProduct, setSeletedProduct] = useState(product)
     
     const displayDetails = id =>{
         let clickedProduct = product.find(item => item.id === id)
         setSeletedProduct(clickedProduct)
+        setShow(true)
 
     }
 
+if(!show){
 
 
     return ( 
         <>
-            <div className="grid lg:grid-cols-4 gap-5 px-10 mt-5">
+            <div className="grid lg:grid-cols-4 gap-5 px-10 mt-5 pb-10">
                 {
                     product.map(item =>{
                         return(
@@ -35,6 +40,15 @@ const ProductList = ({product}) => {
             </div>
         </>
      );
+}
+
+else{
+    return(
+        <>
+            <ProductDetails product={selectedProduct} display={setShow}/>
+        </>
+    )
+}
 }
  
 export default ProductList;

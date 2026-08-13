@@ -1,7 +1,7 @@
 
 const Button = ({label, functionality}) => {
     return ( 
-        <button onClick={functionality} className="border p-1 rounded text-sm">{label}</button>
+        <button onClick={functionality} className="border p-1 px-2 rounded text-sm">{label}</button>
      );
 }
  
