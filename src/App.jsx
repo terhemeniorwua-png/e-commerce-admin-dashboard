@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './component/Header'
-import SearchProduct from './component/Search'
+import SearchProduct from './component/SearchBar'
 import ProductList from './component/ProductList'
 
 function App() {
@@ -95,12 +95,32 @@ const products = [
   }
 ]
 
+const [displayedProduct, setDisplayedProduct] = useState(products)
+
+const displayInStockProducts = () =>{
+  let inStocked = products.filter(product => product.inStock === true)
+  setDisplayedProduct(inStocked)
+}
+
+const displayOutOfStockProducts = () =>{
+  let outOfStock = products.filter(product => product.inStock === false)
+  setDisplayedProduct(outOfStock)
+}
+
+const displayAllProducts = () =>{
+  setDisplayedProduct(products)
+}
+
+
+
+
+
   return (
     <>
-      <Header />
+      <Header allProducts={displayAllProducts} inStockProducts={displayInStockProducts} outOfStock={displayOutOfStockProducts}/>
       <SearchProduct /> 
 
-      <ProductList product={products}/>
+      <ProductList product={displayedProduct}/>
 
     </>
   )
