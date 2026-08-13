@@ -2,7 +2,11 @@ import { useState } from "react";
 import Button from "./Button";
 import ProductDetails from "./ProductDetails";
 
+
+
+
 const ProductList = ({product}) => {
+    // console.log(product)
 
     const [show, setShow] = useState(false)
 

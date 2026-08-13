@@ -6,7 +6,6 @@ const ProductDetails = ({product, display}) => {
     
 
         const handleClose = () =>{
-            // console.log('clicked')
             display(false)
         }
 

@@ -112,13 +112,26 @@ const displayAllProducts = () =>{
 }
 
 
+const handleSearch = e =>{
+  let input = e.target.value.toLowerCase()
 
+  let searchedProduct = displayedProduct.filter(product =>{
+
+    let title = product.name.toLowerCase()
+    let title2 = product.category.toLowerCase()
+
+    if(title.includes(input) || title2.includes(input)){
+      return product
+    }
+  })
+  setDisplayedProduct(searchedProduct)
+}
 
 
   return (
     <>
       <Header allProducts={displayAllProducts} inStockProducts={displayInStockProducts} outOfStock={displayOutOfStockProducts}/>
-      <SearchProduct /> 
+      <SearchProduct functionality={(e)=>{handleSearch(e)}}/> 
 
       <ProductList product={displayedProduct}/>
 
